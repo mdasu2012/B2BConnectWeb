@@ -56,7 +56,7 @@ export const ROUTES: RouteInfo[] = [
     icontype: "ni-align-left-2 text-default",
   },
   {
-    path: "/dashboards",
+    path: "/admin/dashboards",
     title: "Dashboards",
     type: "sub",
     icontype: "ni-shop text-primary",
@@ -67,7 +67,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/examples",
+    path: "/admin/examples",
     title: "Examples",
     type: "sub",
     icontype: "ni-ungroup text-orange",
@@ -83,7 +83,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/components",
+    path: "/admin/components",
     title: "Components",
     type: "sub",
     icontype: "ni-ui-04 text-info",
@@ -111,7 +111,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/forms",
+    path: "/admin/forms",
     title: "Forms",
     type: "sub",
     icontype: "ni-single-copy-04 text-pink",
@@ -124,7 +124,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/tables",
+    path: "/admin/tables",
     title: "Tables",
     type: "sub",
     icontype: "ni-align-left-2 text-default",
@@ -137,7 +137,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/maps",
+    path: "/admin/maps",
     title: "Maps",
     type: "sub",
     icontype: "ni-map-big text-primary",
@@ -149,19 +149,19 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/widgets",
+    path: "/admin/widgets",
     title: "Widgets",
     type: "link",
     icontype: "ni-archive-2 text-green"
   },
   {
-    path: "/charts",
+    path: "/admin/charts",
     title: "Charts",
     type: "link",
     icontype: "ni-chart-pie-35 text-info"
   },
   {
-    path: "/calendar",
+    path: "/admin/calendar",
     title: "Calendar",
     type: "link",
     icontype: "ni-calendar-grid-58 text-red"

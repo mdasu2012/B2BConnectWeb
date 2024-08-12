@@ -11,6 +11,7 @@ import { EmployeeListComponent } from "./pages/b2b/employee/employee-list/employ
 import { LeadListComponent } from "./pages/b2b/lead/lead-list/lead-list.component";
 import { PropertyListComponent } from "./pages/b2b/property/property-list/property-list.component";
 import { LoginComponent } from "./pages/examples/login/login.component";
+import { AddPropertyComponent } from "./pages/b2b/property/add-property/add-property.component";
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: "properties",
         component:PropertyListComponent
+      },
+      {
+        path: "add_property",
+        component:AddPropertyComponent
       },
       {
         path: "dashboards",

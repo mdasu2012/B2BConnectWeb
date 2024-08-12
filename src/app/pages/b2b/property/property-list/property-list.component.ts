@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/models/property.model';
 import { PropertyService } from 'src/app/services/property.service';
+import List from "list.js";
 
 @Component({
   selector: 'app-property-list',
@@ -24,7 +25,8 @@ export class PropertyListComponent implements OnInit {
   }];
   constructor(private router: Router, private propertyService: PropertyService) { }
 
-  ngOnInit(): void {
+  
+  ngOnInit() {
     this.getAllProperties();
   }
 

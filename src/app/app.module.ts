@@ -28,6 +28,7 @@ import { EmployeeListComponent } from './pages/b2b/employee/employee-list/employ
 import { AddEmployeeComponent } from './pages/b2b/employee/add-employee/add-employee.component';
 import { DashboardComponent } from './pages/b2b/dashboard/dashboard.component';
 import { OtpComponent } from './pages/b2b/otp/otp.component';
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { OtpComponent } from './pages/b2b/otp/otp.component';
     TagInputModule,
     PresentationModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,  
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

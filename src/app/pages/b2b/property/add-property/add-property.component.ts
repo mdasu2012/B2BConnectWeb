@@ -11,6 +11,8 @@ import { PropertyService } from 'src/app/services/property.service';
 })
 export class AddPropertyComponent implements OnInit {
 
+  bsValue = new Date();
+  bsValue1= new Date();
   createPropertyForm: UntypedFormGroup;
   bsConfiguration: Partial<BsDatepickerConfig>;
   constructor(private router: Router, private fb: UntypedFormBuilder, private propertyService:PropertyService) {
