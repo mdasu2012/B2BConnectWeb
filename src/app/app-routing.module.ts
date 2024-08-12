@@ -12,6 +12,9 @@ import { LeadListComponent } from "./pages/b2b/lead/lead-list/lead-list.componen
 import { PropertyListComponent } from "./pages/b2b/property/property-list/property-list.component";
 import { LoginComponent } from "./pages/examples/login/login.component";
 import { AddPropertyComponent } from "./pages/b2b/property/add-property/add-property.component";
+import { AddLeadComponent } from "./pages/b2b/lead/add-lead/add-lead.component";
+import { EditLeadComponent } from "./pages/b2b/lead/edit-lead/edit-lead.component";
+import { EditPropertyComponent } from "./pages/b2b/property/edit-property/edit-property.component";
 
 const routes: Routes = [
   {
@@ -43,12 +46,15 @@ const routes: Routes = [
       {
         path: "leads",
         component:LeadListComponent
-
       },
+      { path: "add_lead", component: AddLeadComponent },
+      { path: "edit_lead/:id/:type", component: EditLeadComponent },
       {
         path: "properties",
         component:PropertyListComponent
       },
+      { path: "add_property", component: AddPropertyComponent },
+     { path: "edit_property/:id/:type", component: EditPropertyComponent },
       {
         path: "add_property",
         component:AddPropertyComponent

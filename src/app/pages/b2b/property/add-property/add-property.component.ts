@@ -10,7 +10,7 @@ import { PropertyService } from 'src/app/services/property.service';
   styleUrls: ['./add-property.component.scss']
 })
 export class AddPropertyComponent implements OnInit {
-
+  url:any;
   bsValue = new Date();
   bsValue1= new Date();
   createPropertyForm: UntypedFormGroup;
@@ -75,7 +75,7 @@ export class AddPropertyComponent implements OnInit {
     return c.controls;
   }
 
-  url:any;
+  
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();

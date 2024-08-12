@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -29,6 +29,7 @@ import { AddEmployeeComponent } from './pages/b2b/employee/add-employee/add-empl
 import { DashboardComponent } from './pages/b2b/dashboard/dashboard.component';
 import { OtpComponent } from './pages/b2b/otp/otp.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { OnlyNumberDirective } from "./services/only-number.directive";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
     EmployeeListComponent,
     AddEmployeeComponent,
     DashboardComponent,
-    OtpComponent
+    OtpComponent,
+    OnlyNumberDirective
   ],
   imports: [
     BrowserAnimationsModule,
@@ -61,7 +63,8 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
     PresentationModule,
     BrowserModule,
     AppRoutingModule,  
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

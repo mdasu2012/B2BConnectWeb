@@ -42,8 +42,9 @@
                             <label class=" form-control-label" for="input1">
                                 Property Name
                             </label>
-
-                            <input class=" form-control" id="input1" placeholder="Property Name" type="text" />
+                          <input class=" form-control" id="input1" placeholder="Property Name" type="text" formControlName="propertyName" />
+                          <small  *ngIf="f['propertyName'].touched && f['propertyName'].errors">Required</small>
+                   
                         </div>
                     </div>
 
@@ -53,7 +54,9 @@
                                 Company Name
                             </label>
 
-                            <input class=" form-control" id="input2" placeholder=" Company Name" type="text" />
+                            <input class=" form-control" id="input2" placeholder=" Company Name" type="text"  formControlName="companyName" />
+                            <small  *ngIf="f['companyName'].touched && f['companyName'].errors">Required</small>
+                   
                         </div>
                     </div>
                 </div>
@@ -64,7 +67,9 @@
                                 Rera No
                             </label>
 
-                            <input class=" form-control" id="input3" placeholder=" Rera No" type="text" />
+                            <input class=" form-control" id="input3" placeholder=" Rera No" type="text" formControlName="reraNumber" />
+                            <small  *ngIf="f['reraNumber'].touched && f['reraNumber'].errors">Required</small>
+                  
                         </div>
                     </div>
 
@@ -74,7 +79,9 @@
                                 Guideline Value
                             </label>
 
-                            <input class=" form-control" id="input4" placeholder="Guideline Value" type="text" />
+                            <input class=" form-control" id="input4" placeholder="Guideline Value" type="text"  formControlName="guidelineValue" />
+                            <small  *ngIf="f['guidelineValue'].touched && f['guidelineValue'].errors">Required</small>
+                   
                         </div>
                     </div>
                 </div>
@@ -84,12 +91,13 @@
                             <label class=" form-control-label" for="input5">
                                 Property Type
                             </label>
-                            <select class=" form-control" placeholder=" Property Type" id="input5">
+                            <select formControlName="propertyType" class=" form-control" placeholder=" Property Type" id="input5">
                                 <option value="">Selec Property Type</option>
                                 <option value="PLOT">Plot</option>
                                 <option value="FLAT">Flat</option>
                                 <option value="COMMERCIAL">Commercial</option>
                             </select>
+                            <small  *ngIf="f['propertyType'].touched && f['propertyType'].errors">Required</small>
                             <!-- <input class=" form-control" id="input5" placeholder=" Property Type" type="text" /> -->
                         </div>
                     </div>
@@ -100,7 +108,9 @@
                                 Total Plots
                             </label>
 
-                            <input class=" form-control" id="input6" placeholder="Total Plots" type="text" />
+                            <input class=" form-control" id="input6" placeholder="Total Plots" type="text"   formControlName="totalPlots" />
+                            <small  *ngIf="f['totalPlots'].touched && f['totalPlots'].errors">Required</small>
+                    
                         </div>
                     </div>
                 </div>
@@ -111,7 +121,8 @@
                                 Property Poc
                             </label>
 
-                            <input class=" form-control" id="input7" placeholder="Property Poc" type="text" />
+                            <input class=" form-control" id="input7" placeholder="Property Poc" type="text" formControlName="poc" />
+                            <small  *ngIf="f['poc'].touched && f['poc'].errors">Required</small>
                         </div>
                     </div>
 
@@ -121,7 +132,8 @@
                                 Mobile
                             </label>
 
-                            <input class=" form-control" id="input8" placeholder="Mobile" type="tel" />
+                            <input onlyNumber class=" form-control" id="input8" placeholder="Mobile" type="tel"  formControlName="mobile" />
+                            <small  *ngIf="f['mobile'].touched && f['mobile'].errors">Required</small>
                         </div>
                     </div>
                 </div>
@@ -132,7 +144,8 @@
                                 Amenities
                             </label>
 
-                            <input class=" form-control" id="input9" placeholder="Amenities" type="text" />
+                            <input class=" form-control" id="input9" placeholder="Amenities" type="text"  formControlName="amenities" />
+                            <small  *ngIf="f['amenities'].touched && f['amenities'].errors">Required</small>
                         </div>
                     </div>
 
@@ -142,7 +155,8 @@
                                 Status
                             </label>
 
-                            <input class=" form-control" id="input10" placeholder="Status" type="text" />
+                            <input class=" form-control" id="input10" placeholder="Status" type="text"   formControlName="status" />
+                            <small  *ngIf="f['status'].touched && f['status'].errors">Required</small>
                         </div>
                     </div>
                 </div>
@@ -153,11 +167,12 @@
                                 Start Date
                             </label>
 
-                            <input type="text" placeholder="   Start Date" class="form-control" bsDatepicker
+                            <input  formControlName="startDate" type="text" placeholder="   Start Date" class="form-control" bsDatepicker
                                 [bsValue]="bsValue" [bsConfig]="{
                           isAnimated: true,
                           containerClass: 'theme-red'
                         }" />
+                        <small  *ngIf="f['startDate'].touched && f['startDate'].errors">Required</small>
                         </div>
                     </div>
 
@@ -171,7 +186,8 @@
                                 [bsValue]="bsValue1" [bsConfig]="{
                           isAnimated: true,
                           containerClass: 'theme-red'
-                        }" />
+                        }" formControlName="extensionDate"/>
+                        <small  *ngIf="f['extensionDate'].touched && f['extensionDate'].errors">Required</small>
                         </div>
                     </div>
                 </div>
@@ -182,7 +198,7 @@
                                 Property Description
                             </label>
 
-                            <input class=" form-control" id="input11" placeholder="Property Description" type="text" />
+                            <input   formControlName="propertyDescription" class=" form-control" id="input11" placeholder="Property Description" type="text" />
                         </div>
                     </div>
 
@@ -205,7 +221,9 @@
                                     Address
                                 </label>
 
-                                <input class=" form-control" id="input12" placeholder="Address" type="text" />
+                                <input class=" form-control" id="input12" placeholder="Address" type="text"  formControlName="village" />
+                                <small  *ngIf="g['village'].touched && g['village'].errors">Required</small>
+                                
                             </div>
                         </div>
                         <div class=" col-md-6">
@@ -214,7 +232,9 @@
                                     State
                                 </label>
 
-                                <input class=" form-control" id="input13" placeholder="State" type="text" />
+                                <input class=" form-control" id="input13" placeholder="State" type="text" formControlName="state" />
+                                <small  *ngIf="g['state'].touched && g['state'].errors">Required</small>
+                       
                             </div>
                         </div>
 
@@ -228,6 +248,8 @@
                                 </label>
 
                                 <input class=" form-control" id="input14" placeholder="District" type="text" />
+                                <small  *ngIf="g['district'].touched && g['district'].errors">Required</small>
+                        
                             </div>
                         </div>
                         <div class=" col-md-6">
@@ -236,7 +258,9 @@
                                     Directions
                                 </label>
 
-                                <input class=" form-control" id="input15" placeholder="Directions" type="text" />
+                                <input class=" form-control" id="input15" placeholder="Directions" type="text"   formControlName="directions" />
+                                <small  *ngIf="g['directions'].touched && g['directions'].errors">Required</small>
+                        
                             </div>
                         </div>
 
@@ -248,9 +272,7 @@
                         <div class=" form-group">
                             <label class=" form-control-label" for="input16">
                                 File Upload
-                            </label>
-
-                            <!-- <input type='file' accept=".jpg,.png" id="input16" (change)="onSelectFile($event)"> -->
+                            </label>                           
                             <div class=" custom-file">
                                 <input class=" custom-file-input" id="customFileLang" lang="en" type="file" />
 
@@ -260,6 +282,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 px-md-1">                               
+                        <img [src]="url" height="200"> <br/>                                   
+                </div>
                 </div>
 
 

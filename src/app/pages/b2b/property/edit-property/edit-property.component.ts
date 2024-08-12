@@ -10,7 +10,9 @@ import { PropertyService } from 'src/app/services/property.service';
   styleUrls: ['./edit-property.component.scss']
 })
 export class EditPropertyComponent implements OnInit {
-
+  url:any;
+  bsValue = new Date();
+  bsValue1= new Date();
   selectedId:any;  
   selectedType:any;
   showView:boolean;
