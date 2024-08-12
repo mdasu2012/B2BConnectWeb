@@ -22,7 +22,7 @@
               <div class=" card-header border-0">
                   <div class=" row">
                       <div class=" col-6">
-                          <!-- <h3 class=" mb-0">Leads</h3> -->
+                          <h3 class=" mb-0">Leads</h3>
                       </div>
 
                       <div class=" col-6 text-right">
@@ -37,11 +37,10 @@
                           <!-- <button class=" btn btn-primary" type="button">Add</button> -->
                       </div>
                   </div>
-              </div>
-
+              </div>                            
               <div class=" table-responsive">
-                  <table class=" table align-items-center table-flush">
-                      <thead class=" thead-light">
+                  <table  [ngClass]="theamType=='D' ? 'table align-items-center table-dark table-flush' : 'table align-items-center table-flush'">
+                      <thead [ngClass]="theamType=='D' ? 'thead-dark' : 'thead-light'">
                         <th>Name</th>
                         <th>Company</th>
                         <th>State</th>
