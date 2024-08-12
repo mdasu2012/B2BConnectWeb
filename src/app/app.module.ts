@@ -27,6 +27,7 @@ import { EditEmployeeComponent } from './pages/b2b/employee/edit-employee/edit-e
 import { EmployeeListComponent } from './pages/b2b/employee/employee-list/employee-list.component';
 import { AddEmployeeComponent } from './pages/b2b/employee/add-employee/add-employee.component';
 import { DashboardComponent } from './pages/b2b/dashboard/dashboard.component';
+import { OtpComponent } from './pages/b2b/otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DashboardComponent } from './pages/b2b/dashboard/dashboard.component';
     EditEmployeeComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
-    DashboardComponent
+    DashboardComponent,
+    OtpComponent
   ],
   imports: [
     BrowserAnimationsModule,
