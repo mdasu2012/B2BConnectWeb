@@ -8,7 +8,7 @@ import { LeadService } from 'src/app/services/lead.service';
   styleUrls: ['./lead-list.component.scss']
 })
 export class LeadListComponent implements OnInit {
-  theamType:any='D';
+  theamType:any='W';
   leadsList: Array<Lead> = [];  
   constructor(private router: Router, private leadService: LeadService) { }
   leadsList1 = [
