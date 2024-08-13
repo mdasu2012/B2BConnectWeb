@@ -491,7 +491,84 @@ export const chartDoughnutData = {
     }
   }
 };
-
+export const chartDoughnutData1 = {
+  data: {
+    labels: ["Offers Made"],
+    datasets: [
+      {
+        data: [
+          randomScalingFactor()          
+        ],
+        backgroundColor: [
+          colors.theme["danger"]         
+        ],
+        label: "Dataset 1"
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    legend: {
+      position: "top"
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    }
+  }
+};
+export const chartDoughnutData2 = {
+  data: {
+    labels: ["Deals Closed"],
+    datasets: [
+      {
+        data: [
+          50          
+        ],
+        backgroundColor: [
+          colors.theme["danger"]         
+        ],
+        label: "Dataset 1"
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    legend: {
+      position: "top"
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    }
+  }
+};
+export const chartDoughnutData3 = {
+  data: {
+    labels: ["Leads Closed"],
+    datasets: [
+      {
+        data: [
+          randomScalingFactor()          
+        ],
+        backgroundColor: [
+          colors.theme["danger"]         
+        ],
+        label: "Dataset 1"
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    legend: {
+      position: "top"
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    }
+  }
+};
 export const chartPieData = {
   data: {
     labels: ["Danger", "Warning", "Success", "Primary", "Info"],
