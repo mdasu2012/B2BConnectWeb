@@ -15,6 +15,7 @@ import { AddPropertyComponent } from "./pages/b2b/property/add-property/add-prop
 import { AddLeadComponent } from "./pages/b2b/lead/add-lead/add-lead.component";
 import { EditLeadComponent } from "./pages/b2b/lead/edit-lead/edit-lead.component";
 import { EditPropertyComponent } from "./pages/b2b/property/edit-property/edit-property.component";
+import { OtpComponent } from "./pages/b2b/otp/otp.component";
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "otp",
+    component: OtpComponent,
   },
   {
     path: "presentation",

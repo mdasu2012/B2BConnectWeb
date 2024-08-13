@@ -30,6 +30,7 @@ import { DashboardComponent } from './pages/b2b/dashboard/dashboard.component';
 import { OtpComponent } from './pages/b2b/otp/otp.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { OnlyNumberDirective } from "./services/only-number.directive";
+import { NgOtpInputModule } from "ng-otp-input";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { OnlyNumberDirective } from "./services/only-number.directive";
     BrowserModule,
     AppRoutingModule,  
     BsDatepickerModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgOtpInputModule
   ],
   providers: [],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
