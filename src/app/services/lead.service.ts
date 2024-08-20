@@ -17,7 +17,12 @@ export class LeadService {
   getAllLeads(){
     return this._http.get<any>(AppConstants.GET_ALL_LEADS());
   }
+
   getLeadId(id:any){
     return this._http.get<any>(AppConstants.GET_LEADS_BY_ID(id));
+  }
+
+  updateLead(lead: any){
+    return this._http.put<any>(AppConstants.PUT_UPDATE_LEAD(lead?.id), lead);
   }
 }

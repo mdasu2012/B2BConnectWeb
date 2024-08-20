@@ -11,7 +11,7 @@ import { LeadService } from 'src/app/services/lead.service';
 export class AddLeadComponent implements OnInit {
 
   createLeadForm: UntypedFormGroup;
-  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService:LeadService) {
+  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService: LeadService) {
     this.createLeadForm = this.fb.group({
       firstName: ['', Validators.required],
       middleName: [''],
@@ -20,7 +20,7 @@ export class AddLeadComponent implements OnInit {
       occupation: ['', Validators.required],
 
       mobile: ['', Validators.required],
-      email: ['', [Validators.required,Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
 
       annualIncome: ['', Validators.required],
       industry: ['', Validators.required],
@@ -38,22 +38,24 @@ export class AddLeadComponent implements OnInit {
       })
 
     })
-    console.log(  this.createLeadForm)
+    console.log(this.createLeadForm)
   }
 
   ngOnInit(): void {
   }
 
-  createLead(){
-    this.leadService.createLead(this.createLeadForm.value).subscribe((data: any) =>{
+  createLead() {
+    if (this.createLeadForm.valid) {
+      this.leadService.createLead(this.createLeadForm.value).subscribe((data: any) => {
+        this.router.navigateByUrl("/admin/leads");
+      }, (error: any) => {
 
-      this.router.navigateByUrl("/admin/leads");
-    }, (error: any) =>{
+      })
+    }
 
-    })
   }
 
-  gotoBack(){
+  gotoBack() {
     this.router.navigateByUrl("/admin/leads");
   }
 
@@ -61,7 +63,7 @@ export class AddLeadComponent implements OnInit {
     return this.createLeadForm.controls;
   }
   get g(): { [key: string]: AbstractControl } {
-  let c= this.createLeadForm.controls.address as FormGroup
+    let c = this.createLeadForm.controls.address as FormGroup
     return c.controls;
   }
 

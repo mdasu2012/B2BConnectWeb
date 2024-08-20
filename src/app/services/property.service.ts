@@ -17,4 +17,13 @@ export class PropertyService {
   getAllProperties(){
     return this._http.get<any>(AppConstants.GET_ALL_PROPERTIES());
   }
+
+  getProperty(id:any){
+    return this._http.get<any>(AppConstants.GET_PROPERTY_BY_ID(id));
+  }
+
+  updateProperty(property: any){
+    return this._http.put<any>(AppConstants.PUT_UPDATE_PROPERTY(property?.id), property);
+  }
+
 }

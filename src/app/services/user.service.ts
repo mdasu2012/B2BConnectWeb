@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AppConstants } from '../constants/appConstants';
 
 @Injectable({
@@ -7,14 +8,26 @@ import { AppConstants } from '../constants/appConstants';
 })
 export class UserService {
 
+  private dataSource = new BehaviorSubject<any>(null);
+  private loginDataSource = new BehaviorSubject<any>(null);
+  
+  currentUser = this.loginDataSource.asObservable();
+  currentData = this.dataSource.asObservable();
+
+  updateData(data: any) {
+    this.dataSource.next(data);
+  }
+  
+  updateLoginUser(data: any) {
+    this.loginDataSource.next(data);
+  }
+
+
 
   constructor(private _http: HttpClient) { }
 
-  // getAllLocalizations(){
-  //  return this._http.get<any>(AppConstants.GET_ALL_LOCALIZATIONS());
-  // }
 
-  doLogin(userAccount: any){
+  doLogin(userAccount: any): Observable<any>{
     return this._http.post<any>(AppConstants.POST_DO_LOGIN(), userAccount);
   }
   checkOtp(otp:any){

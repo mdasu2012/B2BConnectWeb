@@ -31,6 +31,7 @@ import { OtpComponent } from './pages/b2b/otp/otp.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { OnlyNumberDirective } from "./services/only-number.directive";
 import { NgOtpInputModule } from "ng-otp-input";
+import { LoginComponent } from './pages/b2b/login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgOtpInputModule } from "ng-otp-input";
     AddEmployeeComponent,
     DashboardComponent,
     OtpComponent,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,

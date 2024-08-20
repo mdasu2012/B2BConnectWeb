@@ -3,15 +3,17 @@ import { environment } from "src/environments/environment";
 const baseUrl = `${environment.apiUrl}`;
 export class AppConstants {
 
+    public static uploadUrl = `${baseUrl}` + "property/map/upload/";
+
     public static GET_IMAGE_PATH(image: string) {
-        return `${baseUrl}` + "/upload/" + image;
+        return `${baseUrl}` + "property/image/" + image;
     }
 
     public static POST_DO_LOGIN() {
         return `${baseUrl}` + "user/login";
     }
     public static DO_CHECK_OTP() {
-        return `${baseUrl}` + "user/login/otp";
+        return `${baseUrl}` + "user/verifyOtp";
     }
 
     public static POST_CREAE_LEAD() {
@@ -21,7 +23,7 @@ export class AppConstants {
     public static GET_ALL_LEADS() {
         return `${baseUrl}` + "lead/all";
     }
-    public static GET_LEADS_BY_ID(id:any) {
+    public static GET_LEADS_BY_ID(id: any) {
         return `${baseUrl}` + "lead/" + id;
     }
     public static POST_CREAE_PROPERTY() {
@@ -31,11 +33,26 @@ export class AppConstants {
     public static GET_ALL_PROPERTIES() {
         return `${baseUrl}` + "property/all";
     }
-    
 
-    
-    
+    public static PUT_UPDATE_LEAD(leadId: number) {
+        return `${baseUrl}` + "lead/" + leadId;
+    }
 
-   
+    public static GET_PROPERTY_BY_ID(propertyId: number) {
+        return `${baseUrl}` + "property/" + propertyId;
+    }
+
+    public static PUT_UPDATE_PROPERTY(propertyId: number) {
+        return `${baseUrl}` + "property/" + propertyId;
+    }
+
+
+
+
+
+
+
+
+
 
 }

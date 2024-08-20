@@ -10,12 +10,12 @@ import { DashboardComponent } from "./pages/b2b/dashboard/dashboard.component";
 import { EmployeeListComponent } from "./pages/b2b/employee/employee-list/employee-list.component";
 import { LeadListComponent } from "./pages/b2b/lead/lead-list/lead-list.component";
 import { PropertyListComponent } from "./pages/b2b/property/property-list/property-list.component";
-import { LoginComponent } from "./pages/examples/login/login.component";
 import { AddPropertyComponent } from "./pages/b2b/property/add-property/add-property.component";
 import { AddLeadComponent } from "./pages/b2b/lead/add-lead/add-lead.component";
 import { EditLeadComponent } from "./pages/b2b/lead/edit-lead/edit-lead.component";
 import { EditPropertyComponent } from "./pages/b2b/property/edit-property/edit-property.component";
 import { OtpComponent } from "./pages/b2b/otp/otp.component";
+import { LoginComponent } from "./pages/b2b/login/login.component";
 
 const routes: Routes = [
   {

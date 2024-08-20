@@ -4,30 +4,10 @@
             <div class=" row align-items-center py-4">
                 <div class=" col-lg-6 col-7">
                     <h6 class=" h2 text-white d-inline-block mb-0">Properties</h6>
-
-                    <!-- <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
-                        <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
-                            <li class=" breadcrumb-item">
-                                <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
-                            </li>
-
-                            <li class=" breadcrumb-item">
-                                <a href="javascript:void(0)"> Tables </a>
-                            </li>
-
-                            <li aria-current="page" class=" breadcrumb-item active">
-                                Tables
-                            </li>
-                        </ol>
-                    </nav> -->
                 </div>
 
                 <div class=" col-lg-6 col-5 text-right">
                     <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLPropertyCreation()"> New </a>
-
-                    <!-- <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
-                        Filters
-                    </a> -->
                 </div>
             </div>
         </div>
@@ -45,14 +25,14 @@
                         </div>
 
                         <div class=" col-6 text-right">
-                            <a class=" btn btn-sm btn-neutral btn-round btn-icon" href="javascript:void(0)"
+                            <!-- <a class=" btn btn-sm btn-neutral btn-round btn-icon" href="javascript:void(0)"
                                 tooltip="Edit product" placement="top">
                                 <span class=" btn-inner--icon">
                                     <i class=" fas fa-user-edit"> </i>
                                 </span>
 
-                                <!-- <span class=" btn-inner--text"> Export </span> -->
-                            </a>
+                                <span class=" btn-inner--text"> Export </span>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -81,9 +61,9 @@
                                 <td>{{property.mobile}}</td>
 
                                 <td>{{property.status}}</td>
-                                <td>{{property.startDate | date}}</td>
+                                <td>{{property.startDate | date: 'dd/MM/yyyy'}}</td>
 
-                                <td>{{property.extensionDate | date}}</td>
+                                <td>{{property.extensionDate | date: 'dd/MM/yyyy'}}</td>
                                 <td class="table-actions">
 
                                     <a class="table-action" tooltip="Edit product" placement="top"
@@ -91,9 +71,9 @@
                                         <i class=" fas fa-user-edit" (click)="edit(property)"> </i>
                                     </a>
 
-                                    <a class=" table-action table-action-delete" tooltip="Delete product"
+                                    <a class=" table-action table-action-delete" tooltip="View product"
                                         placement="top" href="javascript:void(0)">
-                                        <i class=" fas fa-user-edit" (click)="view(property)"> </i>
+                                        <i class=" fas fa-eye" (click)="view(property)"> </i>
                                     </a>
                                     <!-- <button (click)="edit(property)" class=" btn btn-link" type="button"
                                         placement="left" ngbTooltip="Edit Lead" container="body">
@@ -103,47 +83,8 @@
                                         placement="left" ngbTooltip="View Lead" container="body">
                                         <i class=" fas fa-trash"> </i>
                                     </button> -->
-
                                 </td>
                             </tr>
-                            <!-- <tr>
-                    <td class=" table-user">
-                      <img
-                        class=" avatar rounded-circle mr-3"
-                        src="assets/img/theme/team-1.jpg"
-                      />
-        
-                      <b> John Michael </b>
-                    </td>
-        
-                    <td><span class=" text-muted"> 10/09/2018 </span></td>
-        
-                    <td>
-                      <a class=" font-weight-bold" href="javascript:void(0)">
-                        Argon Dashboard PRO
-                      </a>
-                    </td>
-        
-                    <td class=" table-actions">
-                      <a
-                        class="table-action"
-                        tooltip="Edit product"
-                        placement="top"
-                        href="javascript:void(0)"
-                      >
-                        <i class=" fas fa-user-edit"> </i>
-                      </a>
-        
-                      <a
-                        class=" table-action table-action-delete"
-                        tooltip="Delete product"
-                        placement="top"
-                        href="javascript:void(0)"
-                      >
-                        <i class=" fas fa-trash"> </i>
-                      </a>
-                    </td>
-                  </tr> -->
                         </tbody>
                     </table>
                 </div>

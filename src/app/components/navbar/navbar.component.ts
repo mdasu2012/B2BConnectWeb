@@ -7,6 +7,7 @@ import {
   LocationStrategy,
   PathLocationStrategy
 } from "@angular/common";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-navbar",
@@ -18,39 +19,44 @@ export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
   sidenavOpen: boolean = true;
+  loginUsername: any;
   constructor(
     location: Location,
-    private element: ElementRef,
+    private userService: UserService,
     private router: Router
   ) {
     this.location = location;
     this.router.events.subscribe((event: Event) => {
-       if (event instanceof NavigationStart) {
-           // Show loading indicator
+      if (event instanceof NavigationStart) {
+        // Show loading indicator
 
-       }
-       if (event instanceof NavigationEnd) {
-           // Hide loading indicator
+      }
+      if (event instanceof NavigationEnd) {
+        // Hide loading indicator
 
-           if (window.innerWidth < 1200) {
-             document.body.classList.remove("g-sidenav-pinned");
-             document.body.classList.add("g-sidenav-hidden");
-             this.sidenavOpen = false;
-           }
-       }
+        if (window.innerWidth < 1200) {
+          document.body.classList.remove("g-sidenav-pinned");
+          document.body.classList.add("g-sidenav-hidden");
+          this.sidenavOpen = false;
+        }
+      }
 
-       if (event instanceof NavigationError) {
-           // Hide loading indicator
+      if (event instanceof NavigationError) {
+        // Hide loading indicator
 
-           // Present error to user
-           console.log(event.error);
-       }
-   });
+        // Present error to user
+        console.log(event.error);
+      }
+    });
 
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.userService.currentUser.subscribe((data: any) => {
+     let response = data;
+     this.loginUsername = data?.username;
+    })
   }
   getTitle() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -68,25 +74,25 @@ export class NavbarComponent implements OnInit {
 
   openSearch() {
     document.body.classList.add("g-navbar-search-showing");
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.classList.remove("g-navbar-search-showing");
       document.body.classList.add("g-navbar-search-show");
     }, 150);
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.classList.add("g-navbar-search-shown");
     }, 300);
   }
   closeSearch() {
     document.body.classList.remove("g-navbar-search-shown");
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.classList.remove("g-navbar-search-show");
       document.body.classList.add("g-navbar-search-hiding");
     }, 150);
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.classList.remove("g-navbar-search-hiding");
       document.body.classList.add("g-navbar-search-hidden");
     }, 300);
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.classList.remove("g-navbar-search-hidden");
     }, 500);
   }
@@ -111,5 +117,9 @@ export class NavbarComponent implements OnInit {
       document.body.classList.remove("g-sidenav-hidden");
       this.sidenavOpen = true;
     }
+  }
+
+  gotoLogin() {
+    this.router.navigateByUrl('/login');
   }
 }
