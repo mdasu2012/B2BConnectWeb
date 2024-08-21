@@ -4,6 +4,7 @@ import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, Form
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AppConstants } from 'src/app/constants/appConstants';
+import { ImageDto } from 'src/app/models/image.model';
 import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class EditPropertyComponent implements OnInit {
   editPropertyForm: UntypedFormGroup;
   bsConfiguration: Partial<BsDatepickerConfig>;
   selectedFile: File | null = null;
+  imageData: ImageDto;
   propertydata: any = {
     propertyName: 'adas', companyName: 'sdsdf', status: 'sdf', address: {
       state: 'AP', directions: '', village: '', district: ''
@@ -143,13 +145,13 @@ export class EditPropertyComponent implements OnInit {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
-      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'text' })
+      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'json' })
         .subscribe(
-          response => {
-            let imageData = response;
-            console.dir(imageData);
+          (response: ImageDto) => {
+         this.imageData = response;
+            console.dir(this.imageData);
             this.editPropertyForm.patchValue({
-              propertyMap:  this.selectedFile.name
+              propertyMap:  this.imageData?.imageName
              }) 
              this.updateProperty();
           },

@@ -4,6 +4,7 @@ import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, Form
 import { Router } from '@angular/router';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AppConstants } from 'src/app/constants/appConstants';
+import { ImageDto } from 'src/app/models/image.model';
 import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class AddPropertyComponent implements OnInit {
   createPropertyForm: UntypedFormGroup;
   bsConfiguration: Partial<BsDatepickerConfig>;
   selectedFile: File | null = null;
+  imageData: ImageDto;
   constructor(private router: Router, private fb: UntypedFormBuilder, private propertyService: PropertyService,
     private _http: HttpClient) {
     this.createPropertyForm = this.fb.group({
@@ -116,14 +118,20 @@ export class AddPropertyComponent implements OnInit {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
-      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'text' })
+      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'json' })
         .subscribe(
-          (response: any) => {
-            let imageData = response;
-            console.dir(imageData);
+          (response: ImageDto) => {
+            this.imageData = response;
+            console.dir( this.imageData);
+            console.dir( this.imageData.imageName);
+            console.dir( this.imageData?.imageName);
+            console.dir(response?.imageName);
             this.createPropertyForm.patchValue({
-              propertyMap:  imageData?.imageName
+              propertyMap:  this.imageData.imageName
              }) 
+        
+         console.dir(  this.createPropertyForm.get('propertyMap').value)
+             console.dir( this.createPropertyForm.value)
              this.createProperty();
           },
           (error: HttpErrorResponse) => {
