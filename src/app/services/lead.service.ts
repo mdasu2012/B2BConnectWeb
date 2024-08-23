@@ -25,4 +25,10 @@ export class LeadService {
   updateLead(lead: any){
     return this._http.put<any>(AppConstants.PUT_UPDATE_LEAD(lead?.id), lead);
   }
+
+  deleteLead(id:any){
+    return this._http.delete<any>(AppConstants.DELETE_LEADS_BY_ID(id));
+  }
+
+  
 }

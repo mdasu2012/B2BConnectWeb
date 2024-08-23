@@ -26,4 +26,10 @@ export class PropertyService {
     return this._http.put<any>(AppConstants.PUT_UPDATE_PROPERTY(property?.id), property);
   }
 
+  
+  deleteProperty(id:any){
+    return this._http.delete<any>(AppConstants.DELETE_PROPERTY_BY_ID(id));
+  }
+
+
 }

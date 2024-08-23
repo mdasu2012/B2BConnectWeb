@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class OtpComponent implements OnInit {
 
   otp: any;
   otpForm: FormGroup;
-  constructor(private router: Router, private fb: UntypedFormBuilder, private userService: UserService) {
+  constructor(private router: Router, private fb: UntypedFormBuilder, private userService: UserService,
+    private notificationService: NotificationService) {
 
     this.otpForm = this.fb.group({
       username: ['', Validators.required],
@@ -45,12 +47,13 @@ export class OtpComponent implements OnInit {
     console.dir(this.otpForm.value);
     if (this.otpForm.valid) {
       this.userService.checkOtp(this.otpForm.value).subscribe(res => {
+        this.notificationService.showNotification("success","OTP verified successfully!");
         this.router.navigateByUrl("/admin/dashboard");
       }, error => {
-
+        this.notificationService.showNotification("danger","Please Enter Valid OTP");
       })
     } else {
-      console.dir("Please enter Otp");
+      this.notificationService.showNotification("danger","Please Enter Valid OTP");
     }
   }
 }

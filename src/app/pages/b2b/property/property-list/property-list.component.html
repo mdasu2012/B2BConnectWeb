@@ -66,15 +66,23 @@
                                 <td>{{property.extensionDate | date: 'dd/MM/yyyy'}}</td>
                                 <td class="table-actions">
 
-                                    <a class="table-action" tooltip="Edit product" placement="top"
+                                    <a class="table-action" tooltip="Edit Property" placement="top"
                                         href="javascript:void(0)">
                                         <i class=" fas fa-user-edit" (click)="edit(property)"> </i>
                                     </a>
 
-                                    <a class=" table-action table-action-delete" tooltip="View product"
+                                    <a class=" table-action table-action-delete" tooltip="View Property"
                                         placement="top" href="javascript:void(0)">
                                         <i class=" fas fa-eye" (click)="view(property)"> </i>
                                     </a>
+
+
+                                    <a class=" table-action table-action-delete" tooltip="Delete Property"
+                                    placement="top" href="javascript:void(0)">
+                                    <i class="fa fa-trash" (click)="questionSwal(property.id)"> </i>
+                                </a>
+
+
                                     <!-- <button (click)="edit(property)" class=" btn btn-link" type="button"
                                         placement="left" ngbTooltip="Edit Lead" container="body">
                                         <i class=" fas fa-user-edit"> </i>

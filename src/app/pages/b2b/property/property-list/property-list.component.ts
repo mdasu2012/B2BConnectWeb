@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/models/property.model';
 import { PropertyService } from 'src/app/services/property.service';
-import List from "list.js";
-
+import swal from "sweetalert2";
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
@@ -11,18 +10,7 @@ import List from "list.js";
 })
 export class PropertyListComponent implements OnInit {
 
-  properties: Array<Property> = [{id:1,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
-    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
-    startDate:new Date()
-  },
-  {id:2,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
-    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
-    startDate:new Date()
-  },
-  {id:3,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
-    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
-   startDate:new Date()
-  }];
+  properties: Array<Property> = [];
   constructor(private router: Router, private propertyService: PropertyService) { }
 
   
@@ -49,5 +37,35 @@ export class PropertyListComponent implements OnInit {
   view(data){  
     console.log(data)
     this.router.navigate(["/admin/edit_property",data.id,'view']);
+  }
+
+  deleteProperty(id: number){
+    this.propertyService.deleteProperty(id).subscribe((data: any) => {
+      this.getAllProperties();
+    }, (error: any) => {
+
+    })
+  }
+
+  questionSwal(propertyId: number) {
+    swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to Delete",
+      icon: "question",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: "btn btn-default",
+        closeButton: "btn-close",
+        cancelButton:"btn btn-danger",
+      },
+      showCancelButton: true,
+      showCloseButton: true,
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteProperty(propertyId);  
+      }
+    });
   }
 }

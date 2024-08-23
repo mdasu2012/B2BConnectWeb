@@ -46,7 +46,6 @@ const routes: Routes = [
       {
         path: "employeeList",
         component:EmployeeListComponent
-
       },
       {
         path: "leads",

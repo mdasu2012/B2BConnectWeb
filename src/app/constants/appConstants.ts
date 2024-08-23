@@ -2,6 +2,7 @@ import { environment } from "src/environments/environment";
 
 const baseUrl = `${environment.apiUrl}`;
 export class AppConstants {
+   
 
     public static uploadUrl = `${baseUrl}` + "property/map/upload/";
 
@@ -46,13 +47,33 @@ export class AppConstants {
         return `${baseUrl}` + "property/" + propertyId;
     }
 
+    public static DELETE_PROPERTY_BY_ID(propertyId: number) {
+        return `${baseUrl}` + "property/" + propertyId;
+    }
+    
 
+    public static DELETE_LEADS_BY_ID(leadId: number) {
+        return `${baseUrl}` + "lead/" + leadId;
+    }
+    
+    public static POST_CREAE_EMPLOYEE() {
+        return `${baseUrl}` + "employee/add";
+    }
 
+    public static GET_ALL_EMPLOYEES() {
+        return `${baseUrl}` + "employee/all";
+    }
 
+    public static GET_EMPLOYESS_BY_ID(employeeId: number) {
+        return `${baseUrl}` + "employee/" + employeeId;
+    }
 
+    public static PUT_UPDATE_EMPLOYESS(employeeId: number) {
+        return `${baseUrl}` + "employee/" + employeeId;
+    }
 
-
-
-
-
+    public static DELETE_EMPLOYESS_BY_ID(employeeId: number) {
+        return `${baseUrl}` + "employee/" + employeeId;
+    }
+    
 }

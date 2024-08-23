@@ -12,7 +12,7 @@
                             </li>
 
                             <li class=" breadcrumb-item">
-                                <a href="javascript:void(0)"> Edit Property</a>
+                                <a href="javascript:void(0)"> {{this.headerName}} Property</a>
                             </li>
 
                         </ol>
@@ -30,7 +30,7 @@
 <div class=" container-fluid mt--6">
     <div class=" card mb-4">
         <div class=" card-header">
-            <h3 class=" mb-0"> Edit Property </h3>
+            <h3 class=" mb-0"> {{this.headerName}} Property </h3>
         </div>
 
         <form [formGroup]="editPropertyForm" (ngSubmit)="uploadImage()">
