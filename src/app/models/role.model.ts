@@ -3,5 +3,6 @@ export interface Role {
     roleName?: string;
     roleDisplayName?: string;
     description?: string;
+    department?:any; 
     
 }

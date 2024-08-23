@@ -37,6 +37,12 @@ export const ROUTES: RouteInfo[] = [
     type: "link",
     icontype: "ni-shop text-primary",
   },
+    {
+    path: "/admin/roleList",
+    title: "Role",
+    type: "link",
+    icontype: "ni-single-copy-04 text-pink",
+  },
   {
     path: "/admin/employeeList",
     title: "Employee",
@@ -44,17 +50,18 @@ export const ROUTES: RouteInfo[] = [
     icontype: "ni-ungroup text-orange",
   },
   {
+    path: "/admin/properties",
+    title: "Property",
+    type: "link",
+    icontype: "ni-align-left-2 text-default",
+  },
+  {
     path: "/admin/leads",
     title: "Lead",
     type: "link",
     icontype: "ni-ui-04 text-info",
   },
-  {
-    path: "/admin/properties",
-    title: "Property",
-    type: "link",
-    icontype: "ni-align-left-2 text-default",
-  }
+  
   // ,
   // {
   //   path: "/admin/dashboards",

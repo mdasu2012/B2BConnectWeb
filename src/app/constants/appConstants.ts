@@ -4,10 +4,10 @@ const baseUrl = `${environment.apiUrl}`;
 export class AppConstants {
    
 
-    public static uploadUrl = `${baseUrl}` + "property/map/upload/";
+    public static uploadUrl = `${baseUrl}` + "file/upload";
 
     public static GET_IMAGE_PATH(image: string) {
-        return `${baseUrl}` + "property/image/" + image;
+        return `${baseUrl}` + "file/image/" + image;
     }
 
     public static POST_DO_LOGIN() {
@@ -74,6 +74,29 @@ export class AppConstants {
 
     public static DELETE_EMPLOYESS_BY_ID(employeeId: number) {
         return `${baseUrl}` + "employee/" + employeeId;
+    }
+
+    public static GET_ALL_ROLES() {
+        return `${baseUrl}` + "role/all";
+    }
+    public static GET_ALL_ROLES_BY_DEPARTMENT(department: String) {
+        return `${baseUrl}` + "role/all/"+department;
+    }
+
+    public static POST_CREAE_ROLE() {
+        return `${baseUrl}` + "role/add";
+    }
+
+    public static GET_ROLE_BY_ID(roleId: number) {
+        return `${baseUrl}` + "role/"+roleId;
+    }
+
+    public static PUT_UPDATE_ROLE(roleId: number) {
+        return `${baseUrl}` + "role/"+roleId;
+    }
+
+    public static DELETE_ROLE_BY_ID(roleId: number) {
+        return `${baseUrl}` + "role/"+roleId;
     }
     
 }

@@ -15,7 +15,7 @@ export class NotificationService {
         `<span class="alert-icon" data-notify="icon">Success:</span> <div class="alert-text"</div> <span class="alert-title" data-notify="title"></span> <span data-notify="message">${message}</span></div>`,
         "",
         {
-          timeOut: 8000,
+          timeOut: 4000,
           closeButton: true,
           enableHtml: true,
           tapToDismiss: false,
@@ -32,7 +32,7 @@ export class NotificationService {
         "",
        
         {
-          timeOut: 8000,
+          timeOut: 4000,
           closeButton: true,
           enableHtml: true,
           tapToDismiss: false,

@@ -7,7 +7,7 @@
               </div>
 
               <div class=" col-lg-6 col-5 text-right">
-                  <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLPropertyCreation()"> New </a>
+                  <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLemployeeCreation()"> New </a>
               </div>
           </div>
       </div>
@@ -34,44 +34,41 @@
                   <table class=" table align-items-center table-flush">
                       <thead class=" thead-light">
                           <tr>
-                              <th>Property Name</th>
-                              <th>Company</th>
-                              <th>State</th>
+                              <th>Employee Name</th>
+                              <th>Username</th>
+                              <th>Email</th>
                               <th>Phone</th>
-                              <th>property Status</th>
-                              <th>Start Date</th>
-                              <th>Extension Date</th>
+                              <th>Department</th>
+                              <th>Role</th>
                               <th>Options</th>
                           </tr>
                       </thead>
 
                       <tbody>
-                          <tr *ngFor="let property of employees">
-                              <td>{{property.propertyName}} </td>
-                              <td>{{property.companyName}}</td>
-                              <td>{{property.address?.state}}</td>
+                          <tr *ngFor="let employee of employees">
+                              <td>{{employee.name}} </td>
+                              <td>{{employee.username}}</td>
+                              <td>{{employee.email}}</td>
+                              <td>{{employee.mobile}}</td>
 
-                              <td>{{property.mobile}}</td>
+                              <td>{{employee.department}}</td>
 
-                              <td>{{property.status}}</td>
-                              <td>{{property.startDate | date: 'dd/MM/yyyy'}}</td>
-
-                              <td>{{property.extensionDate | date: 'dd/MM/yyyy'}}</td>
+                              <td>{{employee?.role?.roleName}}</td>
                               <td class="table-actions">
 
-                                  <a class="table-action" tooltip="Edit Property" placement="top"
+                                  <a class="table-action" tooltip="Edit Employee" placement="top"
                                       href="javascript:void(0)">
-                                      <i class=" fas fa-user-edit" (click)="edit(property)"> </i>
+                                      <i class=" fas fa-user-edit" (click)="edit(employee)"> </i>
                                   </a>
 
-                                  <a class=" table-action table-action-delete" tooltip="View Property"
+                                  <a class=" table-action table-action-delete" tooltip="View Employee"
                                       placement="top" href="javascript:void(0)">
-                                      <i class=" fas fa-eye" (click)="view(property)"> </i>
+                                      <i class=" fas fa-eye" (click)="view(employee)"> </i>
                                   </a>
 
-                                  <a class=" table-action table-action-delete" tooltip="Delete Property"
+                                  <a class=" table-action table-action-delete" tooltip="Delete Employee"
                                   placement="top" href="javascript:void(0)">
-                                  <i class="fa fa-trash" (click)="questionSwal(property.id)"> </i>
+                                  <i class="fa fa-trash" (click)="questionSwal(employee.id)"> </i>
                               </a>
                                  
                               </td>

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AppConstants } from 'src/app/constants/appConstants';
 import { ImageDto } from 'src/app/models/image.model';
+import { NotificationService } from 'src/app/services/notification.service';
 import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
@@ -24,14 +25,9 @@ export class EditPropertyComponent implements OnInit {
   bsConfiguration: Partial<BsDatepickerConfig>;
   selectedFile: File | null = null;
   imageData: ImageDto;
-  propertydata: any = {
-    propertyName: 'adas', companyName: 'sdsdf', status: 'sdf', address: {
-      state: 'AP', directions: '', village: '', district: ''
-    }, mobile: '9283476926', extensionDate: new Date(), reraNumber: '3243', guidelineValue: 'wef',
-    startDate: new Date(), propertyType: 'PLOT', totalPlots: '1', poc: '', amenities: 'sd', propertyDescription: 'sdfkjhsd', propertyMap: ''
-  }
-  constructor(private activateRouter: ActivatedRoute, private router: Router, private fb: UntypedFormBuilder, 
-    private propertyService: PropertyService , private _http: HttpClient) {
+  propertydata: any;
+  constructor(private activateRouter: ActivatedRoute, private router: Router, private fb: UntypedFormBuilder,
+    private propertyService: PropertyService, private _http: HttpClient, private notificationService: NotificationService) {
     this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
     this.selectedType = this.activateRouter.snapshot.paramMap.get('type');
   }
@@ -51,45 +47,45 @@ export class EditPropertyComponent implements OnInit {
       containerClass: 'theme-red',
       isAnimated: true,
     };
-    
+
     this.getProperty();
   }
 
-  getProperty(){
+  getProperty() {
     this.propertyService.getProperty(this.selectedId).subscribe((data: any) => {
       this.propertydata = data;
-      
+
       this.editPropertyForm = this.fb.group({
         id: this.propertydata.id,
         propertyName: [this.propertydata.propertyName, Validators.required],
         companyName: [this.propertydata.companyName, Validators.required],
         reraNumber: [this.propertydata.reraNumber, Validators.required],
-  
+
         guidelineValue: [this.propertydata.guidelineValue, Validators.required],
-  
+
         propertyType: [this.propertydata.propertyType, Validators.required],
         totalPlots: [this.propertydata.totalPlots, Validators.required],
-  
+
         poc: [this.propertydata.poc, Validators.required],
         mobile: [this.propertydata.mobile, Validators.required],
-  
+
         amenities: [this.propertydata.amenities, Validators.required],
         startDate: [new Date(this.propertydata.startDate), Validators.required],
-  
+
         extensionDate: [new Date(this.propertydata.extensionDate), Validators.required],
         propertyDescription: [this.propertydata.propertyDescription],
         status: [this.propertydata.status, Validators.required],
         propertyMap: [this.propertydata.propertyMap],
-  
+
         address: this.fb.group({
           directions: [this.propertydata.address.directions, Validators.required],
           village: [this.propertydata.address.village, Validators.required],
           district: [this.propertydata.address.district, Validators.required],
           state: [this.propertydata.address.state, Validators.required],
         })
-  
+
       });
-     
+
       this.getImagePath(this.propertydata.propertyMap);
       this.editPropertyForm.markAllAsTouched();
       this.editPropertyForm.updateValueAndValidity();
@@ -101,10 +97,10 @@ export class EditPropertyComponent implements OnInit {
   updateProperty() {
     if (this.editPropertyForm.valid && this.headerName == "Update") {
       this.propertyService.updateProperty(this.editPropertyForm.value).subscribe((data: any) => {
-
+        this.notificationService.showNotification("success", "Property Updated Successfully!");
         this.router.navigateByUrl("/admin/properties");
       }, (error: any) => {
-
+        this.notificationService.showNotification("danger", "Property Not Updated");
       })
     } else if (this.headerName == "View") {
       this.router.navigateByUrl("/admin/properties");
@@ -148,23 +144,25 @@ export class EditPropertyComponent implements OnInit {
       this._http.post(AppConstants.uploadUrl, formData, { responseType: 'json' })
         .subscribe(
           (response: ImageDto) => {
-         this.imageData = response;
+            this.notificationService.showNotification("success", "File Uploaded Successfully!");
+            this.imageData = response;
             console.dir(this.imageData);
             this.editPropertyForm.patchValue({
-              propertyMap:  this.imageData?.imageName
-             }) 
-             this.updateProperty();
+              propertyMap: this.imageData?.imageName
+            })
+            this.updateProperty();
           },
           (error: HttpErrorResponse) => {
-           console.dir(error);
+            console.dir(error);
+            this.notificationService.showNotification("danger", "File Uplaod Failed");
           }
         );
-    }else{
+    } else {
       this.updateProperty();
     }
   }
 
- 
+
   getImagePath(image: string) {
     return AppConstants.GET_IMAGE_PATH(image);
   }

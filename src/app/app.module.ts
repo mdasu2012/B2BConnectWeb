@@ -32,6 +32,9 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { OnlyNumberDirective } from "./services/only-number.directive";
 import { NgOtpInputModule } from "ng-otp-input";
 import { LoginComponent } from './pages/b2b/login/login.component';
+import { RoleListComponent } from './pages/b2b/role/role-list/role-list.component';
+import { AddRoleComponent } from './pages/b2b/role/add-role/add-role.component';
+import { UpdateRoleComponent } from './pages/b2b/role/update-role/update-role.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { LoginComponent } from './pages/b2b/login/login.component';
     DashboardComponent,
     OtpComponent,
     OnlyNumberDirective,
-    LoginComponent
+    LoginComponent,
+    RoleListComponent,
+    AddRoleComponent,
+    UpdateRoleComponent
   ],
   imports: [
     BrowserAnimationsModule,

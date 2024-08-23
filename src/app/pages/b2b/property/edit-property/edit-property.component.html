@@ -158,7 +158,7 @@
                         </div>
                     </div>
 
-                    <div class=" col-md-6">
+                    <!-- <div class=" col-md-6">
                         <div class=" form-group">
                             <label class=" form-control-label" for="input10">
                                 Status
@@ -166,6 +166,21 @@
 
                             <input [readOnly]="showView" class=" form-control" id="input10" placeholder="Status"
                                 type="text" formControlName="status" />
+                            <small *ngIf="f['status'].touched && f['status'].errors">Required</small>
+                        </div>
+                    </div> -->
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input10">
+                                Status
+                            </label>
+                            <select formControlName="status" class=" form-control" placeholder="Status"
+                                id="input10">
+                                <option value="">Selec Property Type</option>
+                                <option value="Ready to occupy">Ready to occupy</option>
+                                <option value="Under construction ">Under construction </option>
+                                <option value="Permission granted">Permission granted</option>
+                            </select>
                             <small *ngIf="f['status'].touched && f['status'].errors">Required</small>
                         </div>
                     </div>

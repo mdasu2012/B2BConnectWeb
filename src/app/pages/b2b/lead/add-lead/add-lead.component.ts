@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LeadService } from 'src/app/services/lead.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-add-lead',
@@ -11,7 +12,8 @@ import { LeadService } from 'src/app/services/lead.service';
 export class AddLeadComponent implements OnInit {
 
   createLeadForm: UntypedFormGroup;
-  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService: LeadService) {
+  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService: LeadService,
+    private notificationService: NotificationService) {
     this.createLeadForm = this.fb.group({
       firstName: ['', Validators.required],
       middleName: [''],
@@ -47,10 +49,13 @@ export class AddLeadComponent implements OnInit {
   createLead() {
     if (this.createLeadForm.valid) {
       this.leadService.createLead(this.createLeadForm.value).subscribe((data: any) => {
+        this.notificationService.showNotification("success","Lead Created Successfully!");
         this.router.navigateByUrl("/admin/leads");
       }, (error: any) => {
-
+        this.notificationService.showNotification("danger","Lead Not Created!");
       })
+    }else{
+      this.notificationService.showNotification("danger","Please Enter All Required Field");
     }
 
   }

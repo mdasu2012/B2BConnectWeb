@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LeadService } from 'src/app/services/lead.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-edit-lead',
@@ -16,14 +17,10 @@ export class EditLeadComponent implements OnInit {
   selectedType: any;
   showView: boolean;
   headerName: any;
-  // leadsList:any = 
-  //   {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
-  //     state:'AP'},mobile:'92834769',email:'sdf@getMaxListeners.com',
-  //     leadStatus:'COLD',createdDate:new Date(),owner:'Satish',
-  //     leadSource:"COMPANY_LEAD"
-  //   }
+  
 
-  constructor(private router: Router, private activateRouter: ActivatedRoute, private fb: UntypedFormBuilder, private leadService: LeadService) {
+  constructor(private router: Router, private activateRouter: ActivatedRoute, private fb: UntypedFormBuilder,
+     private leadService: LeadService, private notificationService: NotificationService) {
     this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
     this.selectedType = this.activateRouter.snapshot.paramMap.get('type');
   }
@@ -43,9 +40,10 @@ export class EditLeadComponent implements OnInit {
     console.log(this.editLeadForm.value)
     if (this.headerName == "Update" && this.editLeadForm.valid) {
       this.leadService.updateLead(this.editLeadForm.value).subscribe((data: any) => {
+        this.notificationService.showNotification("success","Lead Updated Successfully!");
         this.router.navigateByUrl("/admin/leads");
       }, (error: any) => {
-
+        this.notificationService.showNotification("danger","Lead Not Updated!");
       })
     } else if (this.headerName == "View") {
       this.router.navigateByUrl("/admin/leads");

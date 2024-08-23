@@ -19,8 +19,8 @@ export class EmployeeListComponent implements OnInit {
     this.getAllEmployees();
   }
 
-  gotoNewLPropertyCreation() {
-    this.router.navigateByUrl("/admin/add_property");
+  gotoNewLemployeeCreation() {
+    this.router.navigateByUrl("/admin/add_employee");
   }
 
   getAllEmployees() {
@@ -33,11 +33,11 @@ export class EmployeeListComponent implements OnInit {
     })
   }
   edit(data){  
-    this.router.navigate(["/admin/edit_property",data.id,'edit']);
+    this.router.navigate(["/admin/edit_employee",data.id,'edit']);
   } 
   view(data){  
     console.log(data)
-    this.router.navigate(["/admin/edit_property",data.id,'view']);
+    this.router.navigate(["/admin/edit_employee",data.id,'view']);
   }
 
   deleteEmployee(id: number){
@@ -48,7 +48,7 @@ export class EmployeeListComponent implements OnInit {
     })
   }
 
-  questionSwal(propertyId: number) {
+  questionSwal(employeeId: number) {
     swal.fire({
       title: "Are you sure?",
       text: "Do you want to Delete",
@@ -65,7 +65,7 @@ export class EmployeeListComponent implements OnInit {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.deleteEmployee(propertyId);  
+        this.deleteEmployee(employeeId);  
       }
     });
   }

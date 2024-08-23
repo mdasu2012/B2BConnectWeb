@@ -5,7 +5,7 @@ import { UserAccount } from "./user.model";
 export interface Employee {
 
     id?: number;
-    name?: string;
+    name: string;
     mobile?: string;
     email?: string;
     address?: Address;

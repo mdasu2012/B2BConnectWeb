@@ -16,6 +16,11 @@ import { EditLeadComponent } from "./pages/b2b/lead/edit-lead/edit-lead.componen
 import { EditPropertyComponent } from "./pages/b2b/property/edit-property/edit-property.component";
 import { OtpComponent } from "./pages/b2b/otp/otp.component";
 import { LoginComponent } from "./pages/b2b/login/login.component";
+import { AddEmployeeComponent } from "./pages/b2b/employee/add-employee/add-employee.component";
+import { EditEmployeeComponent } from "./pages/b2b/employee/edit-employee/edit-employee.component";
+import { RoleListComponent } from "./pages/b2b/role/role-list/role-list.component";
+import { AddRoleComponent } from "./pages/b2b/role/add-role/add-role.component";
+import { UpdateRoleComponent } from "./pages/b2b/role/update-role/update-role.component";
 
 const routes: Routes = [
   {
@@ -48,6 +53,14 @@ const routes: Routes = [
         component:EmployeeListComponent
       },
       {
+        path: "add_employee",
+        component:AddEmployeeComponent
+      },
+      {
+        path: "edit_employee/:id/:type",
+        component:EditEmployeeComponent
+      },
+      {
         path: "leads",
         component:LeadListComponent
       },
@@ -62,6 +75,19 @@ const routes: Routes = [
       {
         path: "add_property",
         component:AddPropertyComponent
+      },
+
+      {
+        path: "roleList",
+        component:RoleListComponent
+      },
+      {
+        path: "add_role",
+        component:AddRoleComponent
+      },
+      {
+        path: "edit_role/:id",
+        component:UpdateRoleComponent
       },
       {
         path: "dashboards",
